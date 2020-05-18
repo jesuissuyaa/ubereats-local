@@ -38,5 +38,6 @@ module.exports = {
         endpoint: "articles",
       },
     },
+    "gatsby-plugin-chakra-ui",
   ],
 }

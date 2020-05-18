@@ -1,8 +1,3 @@
-## resources
-
-using GraphQL:
-https://www.gatsbyjs.org/docs/programmatically-create-pages-from-data/#specifying-a-template
-
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.org">

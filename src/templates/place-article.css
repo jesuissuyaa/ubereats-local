@@ -1,0 +1,19 @@
+/* styles for injected html */
+
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
+img {
+  margin: 0.5rem 0;
+}
+
+em {
+  background: #edf2f7;
+}

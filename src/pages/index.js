@@ -1,6 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-// import { Link } from "gatsby"
+
+import { Box, Heading } from "@chakra-ui/core"
 
 import Layout from "../components/layout"
 // import Image from "../components/image"
@@ -16,12 +17,19 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="トップ" />
-      <p>Uber Eatsで注文できる個人経営のお店を紹介するサイトです</p>
-      <h1>新着記事</h1>
+      {/* <p>Uber Eatsで注文できる個人経営のお店を紹介するサイトです</p> */}
+      <Heading as="h2" size="md" mt={4}>
+        新着記事
+      </Heading>
       {edges.map(edge => (
-        <div>
-          <Link to={edge.node.slug}>{edge.node.title}</Link>
-        </div>
+        <Link key={edge.node.slug} to={`/${edge.node.slug}`}>
+          <Box borderWidth="1px" rounded="lg" p={4} m={4}>
+            <Heading as="h3" size="md">
+              {edge.node.title}
+            </Heading>
+            {edge.node.description}
+          </Box>
+        </Link>
       ))}
       {/* sample: how to use image */}
       {/* <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
@@ -40,6 +48,7 @@ export const query = graphql`
         node {
           slug
           title
+          description
           createdAt
           food_genres {
             name
