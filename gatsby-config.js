@@ -36,6 +36,59 @@ module.exports = {
         apiKey: "f965db1d-5df6-43d8-aaf3-925f431e7262",
         serviceId: "ubereats-local",
         endpoint: "articles",
+        type: "article", // note: GraphQL types will be "microcmsArticle" & "allmMicrocmsArticle"
+      },
+    },
+    {
+      resolve: "gatsby-source-microcms",
+      options: {
+        apiKey: "f965db1d-5df6-43d8-aaf3-925f431e7262",
+        serviceId: "ubereats-local",
+        endpoint: "food-genres",
+        type: "foodGenre", // note: GraphQL types will be "microcmsArticle" & "allmMicrocmsArticle"
+        // TEMP: needs to be fixed if more tags are added in the future
+        query: {
+          limit: 100,
+        },
+      },
+    },
+    {
+      resolve: "gatsby-source-microcms",
+      options: {
+        apiKey: "f965db1d-5df6-43d8-aaf3-925f431e7262",
+        serviceId: "ubereats-local",
+        endpoint: "cities",
+        type: "city",
+        // TEMP: needs to be fixed if more tags are added in the future
+        query: {
+          limit: 100,
+        },
+      },
+    },
+    {
+      resolve: "gatsby-source-microcms",
+      options: {
+        apiKey: "f965db1d-5df6-43d8-aaf3-925f431e7262",
+        serviceId: "ubereats-local",
+        endpoint: "stations",
+        type: "station",
+        // TEMP: needs to be fixed if more tags are added in the future
+        query: {
+          limit: 100,
+        },
+      },
+    },
+    {
+      resolve: "gatsby-source-microcms",
+      options: {
+        apiKey: "f965db1d-5df6-43d8-aaf3-925f431e7262",
+        serviceId: "ubereats-local",
+        endpoint: "prices",
+        type: "price",
+        // TEMP: needs to be fixed if more tags are added in the future
+        query: {
+          limit: 100,
+        },
       },
     },
     "gatsby-plugin-chakra-ui",

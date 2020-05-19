@@ -5,7 +5,6 @@ import {
   Box,
   Button,
   Heading,
-  Tag,
   Stack,
   Text,
   Link as ChakraLink,
@@ -17,14 +16,13 @@ import { MdTrain } from "react-icons/md"
 
 import SEO from "../components/seo"
 import Layout from "../components/layout"
+import Tag from "../components/tag"
 
 import "./place-article.css"
 
 const PlaceArticle = ({ data }) => {
-  const post = data.microcmsArticles
-  console.log(post.id)
+  const post = data.microcmsArticle
 
-  console.log(post.body)
   return (
     <Layout>
       <SEO title={post.title} />
@@ -40,7 +38,7 @@ const PlaceArticle = ({ data }) => {
             <Box as={FaUtensils} />
             <Stack isInline flexWrap="wrap">
               {post.food_genres.map((item, i) => (
-                <Tag key={i} size="sm" mr={2} mb={2}>
+                <Tag key={i} type="food-genre" mr={2} mb={2}>
                   {item.name}
                 </Tag>
               ))}
@@ -48,13 +46,13 @@ const PlaceArticle = ({ data }) => {
           </Stack>
           <Stack isInline>
             <Box as={FaYenSign} />
-            <Tag size="sm" mb={2}>
+            <Tag type="price" mb={2}>
               {post.price.name}
             </Tag>
           </Stack>
           <Stack isInline>
             <Box as={TiLocation} />
-            <Tag size="sm" mb={2}>
+            <Tag type="city" mb={2}>
               {post.city.name}
             </Tag>
           </Stack>
@@ -62,7 +60,7 @@ const PlaceArticle = ({ data }) => {
             <Box as={MdTrain} />
             <Stack isInline>
               {post.stations.map((item, i) => (
-                <Tag key={i} size="sm" mb={2}>
+                <Tag key={i} type="station" mb={2}>
                   {item.name}
                 </Tag>
               ))}
@@ -81,17 +79,6 @@ const PlaceArticle = ({ data }) => {
             </Button>
           </ChakraLink>
         </Box>
-
-        {/* <Stack isInline mt={8}>
-          <ChakraLink href={post.ue_link} isExternal>
-            <Button>Uber Eats注文ページ</Button>
-          </ChakraLink>
-          {post.owner_link && (
-            <ChakraLink href={post.owner_link} isExternal>
-              <Button>お店のページ</Button>
-            </ChakraLink>
-          )}
-        </Stack> */}
       </div>
     </Layout>
   )
@@ -102,7 +89,7 @@ export default PlaceArticle
 // note: variables with $ are variables inside the context object for createPage
 export const query = graphql`
   query($id: String!) {
-    microcmsArticles(id: { eq: $id }) {
+    microcmsArticle(id: { eq: $id }) {
       id
       body
       title

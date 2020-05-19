@@ -1,18 +1,20 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
-import { Box, Heading } from "@chakra-ui/core"
+import { Heading, Stack } from "@chakra-ui/core"
 
 import Layout from "../components/layout"
 // import Image from "../components/image"
 import SEO from "../components/seo"
+import ArticleCard from "../components/article-card"
+import Tag from "../components/tag"
 
 const IndexPage = ({ data }) => {
-  const edges = data.allMicrocmsArticles.edges
-  // console.log(edges)
-  // edges.forEach(edge => {
-  //   console.log(edge.node.title)
-  // })
+  const articleEdges = data.allMicrocmsArticle.edges
+  const foodGenreEdges = data.allMicrocmsFoodGenre.edges
+  const priceEdges = data.allMicrocmsPrice.edges
+  const cityEdges = data.allMicrocmsCity.edges
+  const stationEdges = data.allMicrocmsStation.edges
 
   return (
     <Layout>
@@ -21,16 +23,52 @@ const IndexPage = ({ data }) => {
       <Heading as="h2" size="md" mt={4}>
         新着記事
       </Heading>
-      {edges.map(edge => (
-        <Link key={edge.node.slug} to={`/${edge.node.slug}`}>
-          <Box borderWidth="1px" rounded="lg" p={4} m={4}>
-            <Heading as="h3" size="md">
-              {edge.node.title}
-            </Heading>
-            {edge.node.description}
-          </Box>
-        </Link>
+      {articleEdges.map((edge, i) => (
+        <ArticleCard key={i} edge={edge} />
       ))}
+      <Heading as="h2" size="md" mt={4}>
+        料理ジャンル
+      </Heading>
+      <Stack isInline space={2} m={4} flexWrap="wrap">
+        {foodGenreEdges.map((edge, i) => (
+          <Tag key={i} type="food-genre" mb={2}>
+            {edge.node.name}
+          </Tag>
+        ))}
+      </Stack>
+
+      <Heading as="h2" size="md" mt={4}>
+        価格帯
+      </Heading>
+      <Stack isInline space={2} m={4} flexWrap="wrap">
+        {priceEdges.map((edge, i) => (
+          <Tag key={i} type="price" mb={2}>
+            {edge.node.name}
+          </Tag>
+        ))}
+      </Stack>
+
+      <Heading as="h2" size="md" mt={4}>
+        市区町村
+      </Heading>
+      <Stack isInline space={2} m={4} flexWrap="wrap">
+        {cityEdges.map((edge, i) => (
+          <Tag key={i} type="city" mb={2}>
+            {edge.node.name}
+          </Tag>
+        ))}
+      </Stack>
+
+      <Heading as="h2" size="md" mt={4}>
+        駅
+      </Heading>
+      <Stack isInline space={2} m={4} flexWrap="wrap">
+        {stationEdges.map((edge, i) => (
+          <Tag key={i} type="station" mb={2}>
+            {edge.node.name}
+          </Tag>
+        ))}
+      </Stack>
       {/* sample: how to use image */}
       {/* <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
       <Image />
@@ -43,7 +81,7 @@ const IndexPage = ({ data }) => {
 
 export const query = graphql`
   query {
-    allMicrocmsArticles(sort: { fields: createdAt, order: DESC }) {
+    allMicrocmsArticle(sort: { fields: createdAt, order: DESC }, limit: 5) {
       edges {
         node {
           slug
@@ -62,6 +100,34 @@ export const query = graphql`
           city {
             name
           }
+        }
+      }
+    }
+    allMicrocmsFoodGenre {
+      edges {
+        node {
+          name
+        }
+      }
+    }
+    allMicrocmsPrice {
+      edges {
+        node {
+          name
+        }
+      }
+    }
+    allMicrocmsCity {
+      edges {
+        node {
+          name
+        }
+      }
+    }
+    allMicrocmsStation {
+      edges {
+        node {
+          name
         }
       }
     }
