@@ -25,7 +25,7 @@ const PlaceArticle = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={post.title} />
+      <SEO title={post.title} description={post.description} />
       <div>
         <Heading as="h1" size="lg">
           {post.title}

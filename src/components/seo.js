@@ -16,7 +16,7 @@ const SEO = ({ title, description, image, article }) => {
   const { site } = useStaticQuery(query)
 
   const {
-    defaultTitle,
+    siteTitle,
     defaultDescription,
     defaultImage,
     twitterUsername,
@@ -24,7 +24,7 @@ const SEO = ({ title, description, image, article }) => {
   } = site.siteMetadata
 
   const seo = {
-    title: title || defaultTitle,
+    title: title ? `${title} | ${siteTitle}` : siteTitle,
     description: description || defaultDescription,
     image: `${siteUrl}${image || defaultImage}`,
     url: `${siteUrl}${pathname}`,
@@ -44,7 +44,11 @@ const SEO = ({ title, description, image, article }) => {
       {/* Twitter OGP */}
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content={twitterUsername} />
-      <meta name="twitter:title" content={seo.title} />
+      <meta
+        name="twitter:title"
+        content={seo.title}
+        // content={title ? `${seo.title} | ${siteTitle}` : siteTitle}
+      />
       <meta name="twitter:description" content={seo.description} />
       <meta name="twitter:image" content={seo.image} />
     </Helmet>
@@ -57,7 +61,7 @@ const query = graphql`
   query SEO {
     site {
       siteMetadata {
-        defaultTitle: title
+        siteTitle: title
         defaultDescription: description
         defaultImage: image
         twitterUsername

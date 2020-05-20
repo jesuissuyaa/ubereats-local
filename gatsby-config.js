@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Uber Eats対応の個人店まとめ`,
+    titleTemplate: `%s | Uber Eats個人店まとめ`,
     description: `Uber Eatsで注文できる個人経営のお店を紹介するサイトです`,
     author: `@ubereats_local`,
     url: `https://ubereats-local.now.sh`,
