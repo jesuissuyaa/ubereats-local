@@ -1,5 +1,13 @@
 import React from "react"
 import { graphql } from "gatsby"
+import {
+  LineShareButton,
+  LineIcon,
+  TwitterShareButton,
+  TwitterIcon,
+  FacebookShareButton,
+  FacebookIcon,
+} from "react-share"
 
 import {
   Box,
@@ -22,11 +30,12 @@ import "./place-article.css"
 
 const PlaceArticle = ({ data }) => {
   const post = data.microcmsArticle
+  const url = `${data.site.siteMetadata.url}/${post.slug}`
 
   return (
     <Layout>
       <SEO title={post.title} description={post.description} />
-      <div>
+      <Stack>
         <Heading as="h1" size="lg">
           {post.title}
         </Heading>
@@ -68,18 +77,37 @@ const PlaceArticle = ({ data }) => {
           </Stack>
         </Stack>
 
-        <div dangerouslySetInnerHTML={{ __html: post.body }} />
-        {/* <div dangerouslySetInnerHTML={{ __html: postHtml }} /> */}
+        <Box>
+          <div dangerouslySetInnerHTML={{ __html: post.body }} />
+        </Box>
 
-        <Box mt={8}>
+        <Box m={8}>
           <ChakraLink href={post.ue_link} isExternal>
-            <Button>
+            <Button variantColor="purple" width="100%">
               Uber Eatsでの注文はここから
               <Icon name="external-link" mr="2px" />
             </Button>
           </ChakraLink>
         </Box>
-      </div>
+
+        <Stack isInline spacing={2} mt={8}>
+          <Box>
+            <TwitterShareButton url={url}>
+              <TwitterIcon size={32} round={true} />
+            </TwitterShareButton>
+          </Box>
+          <Box>
+            <LineShareButton url={url}>
+              <LineIcon size={32} round={true} />
+            </LineShareButton>
+          </Box>
+          <Box>
+            <FacebookShareButton url={url}>
+              <FacebookIcon size={32} round={true} />
+            </FacebookShareButton>
+          </Box>
+        </Stack>
+      </Stack>
     </Layout>
   )
 }
@@ -89,6 +117,11 @@ export default PlaceArticle
 // note: variables with $ are variables inside the context object for createPage
 export const query = graphql`
   query($id: String!) {
+    site {
+      siteMetadata {
+        url
+      }
+    }
     microcmsArticle(id: { eq: $id }) {
       id
       body
@@ -108,6 +141,7 @@ export const query = graphql`
       }
       ue_link
       owner_link
+      slug
     }
   }
 `
