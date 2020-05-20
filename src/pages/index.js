@@ -28,7 +28,7 @@ const IndexPage = ({ data }) => {
         <ArticleCard key={i} edge={edge} />
       ))}
       <Box d="flex" justifyContent="center">
-        <Link to="/articles">
+        <Link to="/articles/1">
           <Button variantColor="purple" leftIcon={TiChevronRight}>
             もっと見る
           </Button>
