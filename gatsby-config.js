@@ -43,7 +43,7 @@ module.exports = {
         type: "article", // note: GraphQL types will be "microcmsArticle" & "allmMicrocmsArticle"
         // set offset
         query: {
-          limit: 10,
+          limit: 100,
         },
       },
     },
