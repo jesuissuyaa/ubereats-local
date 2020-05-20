@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 
-import { Box, Button, Heading, Icon, Stack } from "@chakra-ui/core"
+import { Box, Button, Heading, Stack } from "@chakra-ui/core"
 import { TiChevronRight } from "react-icons/ti"
 
 import Layout from "../components/layout"
