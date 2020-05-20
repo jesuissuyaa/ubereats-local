@@ -29,7 +29,7 @@ const IndexPage = ({ data }) => {
       ))}
       <Box d="flex" justifyContent="center">
         <Link to="/articles">
-          <Button variantColor="yellow" leftIcon={TiChevronRight}>
+          <Button variantColor="purple" leftIcon={TiChevronRight}>
             もっと見る
           </Button>
         </Link>

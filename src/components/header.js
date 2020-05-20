@@ -7,7 +7,7 @@ import { FaTwitter, FaInstagram } from "react-icons/fa"
 
 const Header = ({ siteTitle, siteDescription }) => (
   <header>
-    <Stack space={4} bg="purple.700" p={4} align="center" color="white">
+    <Stack space={4} bg="purple.500" p={4} align="center" color="white">
       <Heading as="h1" size="lg" color="white">
         <Link to="/">{siteTitle}</Link>
       </Heading>
