@@ -19,6 +19,7 @@ exports.createPages = async ({ graphql, actions }) => {
               slug
             }
           }
+          totalCount
         }
         allMicrocmsFoodGenre {
           edges {
@@ -68,6 +69,7 @@ exports.createPages = async ({ graphql, actions }) => {
     allMicrocmsStation,
   } = result.data
 
+  // create pages for each article
   allMicrocmsArticle.edges.forEach(edge => {
     createPage({
       path: edge.node.slug,
@@ -78,6 +80,24 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
+  // create pages for article lists
+  const numArticles = allMicrocmsArticle.totalCount
+  const articlesPerPage = 10
+  const numPages = Math.ceil(numArticles / articlesPerPage)
+  Array.from({ length: numPages }).forEach((_, i) => {
+    createPage({
+      path: `/articles/${i + 1}`,
+      component: path.resolve("./src/templates/article-list.js"),
+      context: {
+        limit: articlesPerPage,
+        skip: i * articlesPerPage,
+        numPages,
+        currentPage: i + 1,
+      },
+    })
+  })
+
+  // create pages for tags
   allMicrocmsFoodGenre.edges.forEach(edge => {
     createPage({
       path: `food-genre/${edge.node.name}`,
@@ -88,7 +108,6 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
-
   allMicrocmsPrice.edges.forEach(edge => {
     createPage({
       path: `price/${edge.node.name}`,
@@ -99,7 +118,6 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
-
   allMicrocmsCity.edges.forEach(edge => {
     createPage({
       path: `city/${edge.node.name}`,
@@ -110,7 +128,6 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
-
   allMicrocmsStation.edges.forEach(edge => {
     createPage({
       path: `station/${edge.node.name}`,

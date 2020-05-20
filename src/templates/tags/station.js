@@ -10,7 +10,7 @@ const StationPage = ({ pageContext, data }) => {
   const articleEdges = data.allMicrocmsArticle.edges
   return (
     <Layout>
-      <SEO title={`価格帯 > ${pageContext.name}`} />
+      <SEO title={`駅 > ${pageContext.name}`} />
       <Heading as="h2" size="md" mt={4}>
         {pageContext.name}のお店
       </Heading>
