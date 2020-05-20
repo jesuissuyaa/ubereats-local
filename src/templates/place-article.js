@@ -90,7 +90,7 @@ const PlaceArticle = ({ data }) => {
           </ChakraLink>
         </Box>
 
-        <Stack isInline spacing={2} mt={8}>
+        <Stack isInline mt={8}>
           <Box>
             <TwitterShareButton url={url}>
               <TwitterIcon size={32} round={true} />
