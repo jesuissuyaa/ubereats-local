@@ -37,6 +37,10 @@ module.exports = {
         serviceId: "ubereats-local",
         endpoint: "articles",
         type: "article", // note: GraphQL types will be "microcmsArticle" & "allmMicrocmsArticle"
+        // set offset
+        query: {
+          limit: 10,
+        },
       },
     },
     {

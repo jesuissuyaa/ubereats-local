@@ -1,7 +1,8 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 
-import { Heading, Stack } from "@chakra-ui/core"
+import { Box, Button, Heading, Icon, Stack } from "@chakra-ui/core"
+import { TiChevronRight } from "react-icons/ti"
 
 import Layout from "../components/layout"
 // import Image from "../components/image"
@@ -26,6 +27,14 @@ const IndexPage = ({ data }) => {
       {articleEdges.map((edge, i) => (
         <ArticleCard key={i} edge={edge} />
       ))}
+      <Box d="flex" justifyContent="center">
+        <Link to="/articles">
+          <Button variantColor="yellow" leftIcon={TiChevronRight}>
+            もっと見る
+          </Button>
+        </Link>
+      </Box>
+
       <Heading as="h2" size="md" mt={4}>
         料理ジャンル
       </Heading>

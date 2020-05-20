@@ -35,7 +35,7 @@ const PlaceArticle = ({ data }) => {
 
         <Stack my={8}>
           <Stack isInline>
-            <Box as={FaUtensils} />
+            <Box as={FaUtensils} minWidth="16px" />
             <Stack isInline flexWrap="wrap">
               {post.food_genres.map((item, i) => (
                 <Tag key={i} type="food-genre" mr={2} mb={2}>
@@ -45,13 +45,13 @@ const PlaceArticle = ({ data }) => {
             </Stack>
           </Stack>
           <Stack isInline>
-            <Box as={FaYenSign} />
+            <Box as={FaYenSign} d="flex" />
             <Tag type="price" mb={2}>
               {post.price.name}
             </Tag>
           </Stack>
           <Stack isInline>
-            <Box as={TiLocation} />
+            <Box as={TiLocation} flexShrink={-1} />
             <Tag type="city" mb={2}>
               {post.city.name}
             </Tag>
