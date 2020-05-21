@@ -37,10 +37,10 @@ const SEO = ({ title, description, image, article }) => {
 
       {/* general OGP */}
       <meta property="og:url" content={seo.url} />
-      <meta property="og:type" content="article" />
-      <meta property="og:type" content="article" />
+      {(article ? true : null) && <meta property="og:type" content="article" />}
       <meta property="og:title" content={seo.title} />
       <meta property="og:description" content={seo.description} />
+      <meta property="og:image" content={seo.image} />
       {/* Twitter OGP */}
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content={twitterUsername} />
