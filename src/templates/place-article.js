@@ -40,9 +40,6 @@ const PlaceArticle = ({ data }) => {
         <Heading as="h1" size="lg">
           {post.title}
         </Heading>
-        <Heading as="h2" size="lg">
-          test
-        </Heading>
 
         <Text>{post.description}</Text>
 
@@ -82,7 +79,10 @@ const PlaceArticle = ({ data }) => {
         </Stack>
 
         <Box>
-          <div dangerouslySetInnerHTML={{ __html: post.body }} />
+          <div
+            className="post"
+            dangerouslySetInnerHTML={{ __html: post.body }}
+          />
         </Box>
 
         <Box m={8}>
