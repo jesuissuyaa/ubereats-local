@@ -31,6 +31,7 @@ import "./place-article.css"
 const PlaceArticle = ({ data }) => {
   const post = data.microcmsArticle
   const url = `${data.site.siteMetadata.url}/${post.slug}`
+  console.log(post.body)
 
   return (
     <Layout>
@@ -38,6 +39,9 @@ const PlaceArticle = ({ data }) => {
       <Stack>
         <Heading as="h1" size="lg">
           {post.title}
+        </Heading>
+        <Heading as="h2" size="lg">
+          test
         </Heading>
 
         <Text>{post.description}</Text>
