@@ -83,7 +83,7 @@ const PlaceArticle = ({ data }) => {
 
         <Box m={8}>
           <ChakraLink href={post.ue_link} isExternal>
-            <Button variantColor="purple" width="100%">
+            <Button variantColor="green" width="100%">
               Uber Eatsでの注文はここから
               <Icon name="external-link" mr="2px" />
             </Button>
