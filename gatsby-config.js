@@ -22,8 +22,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Uber Eats対応の個人店まとめ`,
+        short_name: `UE 個人店`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
