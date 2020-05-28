@@ -96,7 +96,7 @@ export const query = graphql`
           slug
           title
           description
-          createdAt
+          createdAt(formatString: "YYYY年M月D日", locale: "ja")
           food_genres {
             name
           }

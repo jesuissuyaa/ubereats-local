@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import { Box, Heading } from "@chakra-ui/core"
+import { Box, Heading, Stack, Text } from "@chakra-ui/core"
 
 const ArticleCard = ({ edge }) => {
   return (
@@ -10,6 +10,9 @@ const ArticleCard = ({ edge }) => {
         <Heading as="h3" size="md">
           {edge.node.title}
         </Heading>
+        <Text fontSize="xs" color="gray.600" textAlign="right">
+          {edge.node.createdAt}
+        </Text>
         {edge.node.description}
       </Box>
     </Link>

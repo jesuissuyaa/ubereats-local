@@ -40,6 +40,9 @@ const PlaceArticle = ({ data }) => {
         <Heading as="h1" size="lg">
           {post.title}
         </Heading>
+        <Text fontSize="xs" color="gray.600">
+          投稿日: {post.createdAt}
+        </Text>
 
         <Text>{post.description}</Text>
 
@@ -130,6 +133,7 @@ export const query = graphql`
       id
       body
       title
+      createdAt(formatString: "YYYY年M月D日", locale: "ja")
       description
       food_genres {
         name
