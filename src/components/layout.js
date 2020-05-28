@@ -9,6 +9,8 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
+import Twemoji from "react-twemoji"
+
 import Header from "./header"
 import Footer from "./footer"
 import { Box } from "@chakra-ui/core"
@@ -42,7 +44,9 @@ const Layout = ({ children }) => {
           padding: `0 1.0875rem 1.45rem`,
         }}
       > */}
-        <main>{children}</main>
+        <main>
+          <Twemoji options={{ className: "twemoji" }}>{children}</Twemoji>
+        </main>
 
         {/* </div> */}
       </Box>

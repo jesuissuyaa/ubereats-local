@@ -10,6 +10,13 @@
 .post a:hover {
   opacity: 0.8;
 }
+.post blockquote {
+  background: #e9d8fd;
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  color: #553c9a;
+}
 .post h2 {
   font-size: 1.25rem;
   line-height: 1.25;
@@ -36,6 +43,14 @@ p + h2 {
 
 .post img {
   margin: 0.5rem auto;
+}
+
+img.twemoji {
+  display: inline-block;
+  height: 1.2em;
+  width: 1.2em;
+  margin: 0 0.05em 0 0.1em;
+  vertical-align: -0.2em;
 }
 
 em {
