@@ -10,6 +10,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Twemoji from "react-twemoji"
+import "./twemoji.css"
 
 import Header from "./header"
 import Footer from "./footer"
