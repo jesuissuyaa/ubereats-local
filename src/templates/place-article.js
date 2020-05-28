@@ -26,7 +26,6 @@ import SEO from "../components/seo"
 import Layout from "../components/layout"
 import Tag from "../components/tag"
 
-import "../components/twemoji.css"
 import "./place-article.css"
 
 const PlaceArticle = ({ data }) => {
