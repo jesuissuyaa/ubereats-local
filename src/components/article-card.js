@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import { Box, Heading, Stack, Text } from "@chakra-ui/core"
+import { Box, Heading, Text } from "@chakra-ui/core"
 
 const ArticleCard = ({ edge }) => {
   return (
