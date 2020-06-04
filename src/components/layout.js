@@ -37,7 +37,13 @@ const Layout = ({ children }) => {
         siteTitle={data.site.siteMetadata.title}
         siteDescription={data.site.siteMetadata.description}
       />
-      <Box p={4}>
+      <Box
+        p={4}
+        width={["100%", "60%"]}
+        d="flex"
+        alignItems="center"
+        mx={(0, "auto")}
+      >
         {/* <div
         style={{
           margin: `0 auto`,
