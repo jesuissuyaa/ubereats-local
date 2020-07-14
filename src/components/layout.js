@@ -53,6 +53,7 @@ const Layout = ({ children }) => {
       > */}
         <main>
           <Twemoji options={{ className: "twemoji" }}>{children}</Twemoji>
+          <p>※価格・メニューは掲載当時のものです</p>
         </main>
 
         {/* </div> */}
